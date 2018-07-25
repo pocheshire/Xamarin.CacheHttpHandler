@@ -10,10 +10,13 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Services\" />
-    <Folder Include="Services\ApiCache\" />
     <Folder Include="Services\Repository\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Services\Connectivity\" />
-    <Folder Include="Services\CacheSettings\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Realm" Version="3.1.0" />
   </ItemGroup>
 </Project>

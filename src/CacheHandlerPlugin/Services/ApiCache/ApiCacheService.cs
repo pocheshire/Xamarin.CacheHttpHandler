@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace CacheHandlerPlugin.Services.ApiCache
                 //    hash = MD5Helper.GetHashString(postDataTask.Result);
                 //}
 
-                var cachedResult = FindCachedResult(cachedModel.Results, requestMessage);
+                var cachedResult = FindCachedResult(cachedModel, requestMessage);
                 if (cachedResult != null)
                 {
                     if ((DateTimeOffset.UtcNow - cachedResult.Date).TotalSeconds < cachedModel.ExpirationInSeconds)
@@ -98,7 +99,9 @@ namespace CacheHandlerPlugin.Services.ApiCache
             return requestMessage.RequestUri.ToString();
         }
 
-        protected abstract IApiRequestModel FindCachedResult(IList<IApiRequestModel> results, HttpRequestMessage requestMessage);
+        protected abstract IApiRequestModel FindCachedResult(T cachedModel, HttpRequestMessage requestMessage);
+
+        protected abstract IApiRequestModel FindCachedResult(T existingCache, IApiRequestModel requestForCaching);
 
         protected abstract T CreateCacheModel(HttpRequestMessage requestMessage, HttpResponseMessage responseMessage, TimeSpan expireIn);
         /*
@@ -153,7 +156,7 @@ namespace CacheHandlerPlugin.Services.ApiCache
                 {
                     var cachingRequestResult = modelForCaching.Results.Single();
 
-                    var existingResult = existingCache.Results.FirstOrDefault(x => cachingRequestResult.Hash == x.Hash);
+                    var existingResult = FindCachedResult(existingCache, cachingRequestResult);
                     if (existingResult != null)
                     {
                         Update(() =>

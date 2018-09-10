@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <!-- Required elements -->
+        <id>CacheHandlerPlugin</id>
+        <version>$version$</version>
+        <title>CacheHandlerPlugin</title>
+        
+        <!-- Generated elements -->
+        <description>Simple cache for http requests.</description>
+        <authors>Maksim Evtukh</authors>
+        <owners>pocheshire</owners>
+        <copyright>Copyright ©2018 Maksim Evtukh</copyright>
+        <projectUrl>https://github.com/pocheshire/Xamarin.CacheHttpHandler</projectUrl>
+        <tags>cache http handler httpclient modernhttpclient cachehandlerplugin handlerplugin cacheplugin cachehandler</tags>
+        <releaseNotes>
+            10 Sep 2018: Release of version 1.0.0
+        </releaseNotes>
+        
+    </metadata>
+
+    <files>
+        <file src="..\CacheHandlerPlugin\bin\Release\netstandard2.0\CacheHandlerPlugin.*" target="netstandard2.0"  />
+    </files>
+</package>

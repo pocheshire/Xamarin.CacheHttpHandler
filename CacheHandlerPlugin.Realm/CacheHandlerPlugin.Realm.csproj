@@ -1,20 +1,35 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Class1.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\Repository\" />
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Realm" Version="3.2.0" />
-  </ItemGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>CacheHandlerPlugin.Realm</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>Maksim Evtukh</Authors>
+        <Owners>pocheshire</Owners>
+        <PackageReleaseNotes>10 Sep 2018: Release of version 1.0.0</PackageReleaseNotes>
+        <PackageTags>realm cache http handler httpclient modernhttpclient cachehandlerplugin handlerplugin cacheplugin cachehandler</PackageTags>
+        <Title>CacheHandlerPlugin.Realm</Title>
+        <Description>Simple cache for http requests. This package contains IApiCacheService implementation based on Realm.</Description>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/pocheshire/Xamarin.CacheHttpHandler</PackageProjectUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <OutputPath>bin\Debug</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <OutputPath>bin\Release</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="Models\" />
+        <Folder Include="Services\" />
+        <Folder Include="Services\Repository\" />
+        <Folder Include="Extensions\" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Realm" Version="3.2.0" />
+    </ItemGroup>
 </Project>

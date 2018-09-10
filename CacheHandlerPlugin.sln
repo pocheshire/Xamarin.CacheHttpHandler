@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Realm", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Connectivity", "CacheHandlerPlugin.Connectivity\CacheHandlerPlugin.Connectivity.csproj", "{EAD8BDC3-1483-408A-B26F-270296E520FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_nuspec", "_nuspec", "{744C6D25-4D18-4C17-8066-D1D67C2A6D55}"
+	ProjectSection(SolutionItems) = preProject
+		nuspec\CacheHandlerPlugin.Connectivity.nuspec = nuspec\CacheHandlerPlugin.Connectivity.nuspec
+		nuspec\CacheHandlerPlugin.nuspec = nuspec\CacheHandlerPlugin.nuspec
+		nuspec\CacheHandlerPlugin.Realm.nuspec = nuspec\CacheHandlerPlugin.Realm.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

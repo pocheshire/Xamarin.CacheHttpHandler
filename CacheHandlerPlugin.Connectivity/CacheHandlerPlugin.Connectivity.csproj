@@ -1,13 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>CacheHandlerPlugin.Connectivity</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>Maksim Evtukh</Authors>
+        <Owners>pocheshire</Owners>
+        <PackageReleaseNotes>10 Sep 2018: Release of version 1.0.0</PackageReleaseNotes>
+        <PackageTags>cache http handler httpclient modernhttpclient cachehandlerplugin handlerplugin cacheplugin cachehandler</PackageTags>
+        <Title>CacheHandlerPlugin.Connectivity</Title>
+        <Description>Simple cache for http requests. This package contains IConnectivity implementation.</Description>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/pocheshire/Xamarin.CacheHttpHandler</PackageProjectUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <OutputPath>bin\Debug</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <OutputPath>bin\Release</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+    </ItemGroup>
 </Project>

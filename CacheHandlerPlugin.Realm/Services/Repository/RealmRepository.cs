@@ -7,13 +7,13 @@ using Realms;
 
 namespace CacheHandlerPlugin.Realm.Services.Repository
 {
-    public class RealmRealmRepository : IRealmRepository
+    public class RealmRepository : IRealmRepository
     {
         private RealmConfiguration Configuration { get; }
 
         private Realms.Realm Instance => Configuration == null ? Realms.Realm.GetInstance() : Realms.Realm.GetInstance(Configuration);
 
-        public RealmRealmRepository(RealmConfiguration configuration)
+        public RealmRepository(RealmConfiguration configuration)
         {
             Configuration = configuration;
         }

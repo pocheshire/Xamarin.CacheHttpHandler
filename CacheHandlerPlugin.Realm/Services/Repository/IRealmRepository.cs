@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CacheHandlerPlugin.Services.Repository
+namespace CacheHandlerPlugin.Realm.Services.Repository
 {
-    public interface IRepository
+    public interface IRealmRepository
     {
         bool Add<T>(T entity) where T : class;
 

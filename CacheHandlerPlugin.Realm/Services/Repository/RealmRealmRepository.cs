@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CacheHandlerPlugin.Realm.Extensions;
-using CacheHandlerPlugin.Services.Repository;
 using Realms;
 
 namespace CacheHandlerPlugin.Realm.Services.Repository
 {
-    public class RealmRepository : IRepository
+    public class RealmRealmRepository : IRealmRepository
     {
-        protected RealmConfiguration Configuration { get; }
+        private RealmConfiguration Configuration { get; }
 
-        protected Realms.Realm Instance { get { return Configuration == null ? Realms.Realm.GetInstance() : Realms.Realm.GetInstance(Configuration); } }
+        private Realms.Realm Instance => Configuration == null ? Realms.Realm.GetInstance() : Realms.Realm.GetInstance(Configuration);
 
-        public RealmRepository(RealmConfiguration configuration)
+        public RealmRealmRepository(RealmConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -36,7 +35,6 @@ namespace CacheHandlerPlugin.Realm.Services.Repository
 
         public bool RemoveAll<T>() where T : class
         {
-            var type = typeof(T);
             return BeginTransaction(realm => realm.RemoveAll(GetClassName<T>()));
         }
 
@@ -65,7 +63,7 @@ namespace CacheHandlerPlugin.Realm.Services.Repository
             return BeginTransaction(realm => updateAction?.Invoke());
         }
 
-        private string GetClassName<T>() where T : class
+        private static string GetClassName<T>() where T : class
         {
             var type = typeof(T);
             return type.GetTypeInfo().GetMappedOrOriginalName();
@@ -73,7 +71,7 @@ namespace CacheHandlerPlugin.Realm.Services.Repository
 
         private bool BeginTransaction(Action<Realms.Realm> tune = null)
         {
-            var realm = this.Instance;
+            var realm = Instance;
             using (var transaction = realm.BeginWrite())
             {
                 tune?.Invoke(realm);

@@ -7,7 +7,7 @@ namespace CacheHandlerPlugin.Connectivity
 {
     public class ConnectivityService : IConnectivityService
     {
-        IConnectivity Connectivity { get; }
+        private IConnectivity Connectivity { get; }
 
         public ConnectivityService(IConnectivity connectivity = null)
         {

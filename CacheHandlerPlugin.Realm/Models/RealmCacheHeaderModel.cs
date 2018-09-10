@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using CacheHandlerPlugin.Models;
 using Realms;
 
 namespace CacheHandlerPlugin.Realm.Models
 {
-    public class RealmResponseHeader : RealmObject, IApiResponseHeader
+    public class RealmCacheHeaderModel : RealmObject
     {
         [PrimaryKey]
         public string Id { get; set; }

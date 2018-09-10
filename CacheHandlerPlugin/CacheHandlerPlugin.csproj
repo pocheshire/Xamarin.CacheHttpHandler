@@ -1,9 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
@@ -11,7 +9,6 @@
     <Folder Include="Models\" />
     <Folder Include="Services\" />
     <Folder Include="Services\ApiCache\" />
-    <Folder Include="Services\Repository\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Services\Connectivity\" />
     <Folder Include="Services\CacheSettings\" />

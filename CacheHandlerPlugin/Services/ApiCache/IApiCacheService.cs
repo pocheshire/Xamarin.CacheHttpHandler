@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace CacheHandlerPlugin.Services.ApiCache
 {
@@ -7,6 +8,6 @@ namespace CacheHandlerPlugin.Services.ApiCache
     {
         bool TryGet(HttpRequestMessage requestMessage, out HttpResponseMessage responseMessage);
 
-        void Add(HttpRequestMessage requestMessage, HttpResponseMessage responseMessage, TimeSpan expireIn);
+        Task Add(HttpRequestMessage requestMessage, HttpResponseMessage responseMessage, TimeSpan expireIn);
     }
 }

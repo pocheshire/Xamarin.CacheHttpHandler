@@ -15,6 +15,6 @@
     <ProjectReference Include="..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Realm" Version="3.1.0" />
+    <PackageReference Include="Realm" Version="3.2.0" />
   </ItemGroup>
 </Project>

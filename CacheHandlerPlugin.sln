@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin", "CacheHandlerPlugin\CacheHandlerPlugin.csproj", "{4BB44DD7-3A0E-4D1D-AC98-A2B40A675B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Realm", "CacheHandlerPlugin.Realm\CacheHandlerPlugin.Realm.csproj", "{D8C2AF2B-9F60-4B1B-B497-462367168D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Connectivity", "CacheHandlerPlugin.Connectivity\CacheHandlerPlugin.Connectivity.csproj", "{EAD8BDC3-1483-408A-B26F-270296E520FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BB44DD7-3A0E-4D1D-AC98-A2B40A675B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB44DD7-3A0E-4D1D-AC98-A2B40A675B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB44DD7-3A0E-4D1D-AC98-A2B40A675B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB44DD7-3A0E-4D1D-AC98-A2B40A675B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C2AF2B-9F60-4B1B-B497-462367168D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C2AF2B-9F60-4B1B-B497-462367168D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C2AF2B-9F60-4B1B-B497-462367168D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C2AF2B-9F60-4B1B-B497-462367168D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

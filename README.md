@@ -2,7 +2,7 @@
 
 ## Usage
 
-0. Install packages `CacheHandlerPlugin`, `CacheHandlerPlugin.Realm`, `CacheHandlerPlugin.Connectivity`
+0. Install packages [CacheHandlerPlugin](https://www.nuget.org/packages/CacheHandlerPlugin/), [CacheHandlerPlugin.Realm](https://www.nuget.org/packages/CacheHandlerPlugin.Realm/), [CacheHandlerPlugin.Connectivity](https://www.nuget.org/packages/CacheHandlerPlugin.Connectivity/)
 
 1. Create handler instance
 
@@ -44,6 +44,8 @@
 
     netAppCSC.Register(requestMessage, new RequestCacheSettings(600));
     ```
+
+    or
 
     ```csharp
     var requestMessage = new HttpRequestMessage(HttpMethod.Get, %url%);

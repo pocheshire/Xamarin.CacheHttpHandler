@@ -21,12 +21,13 @@
             <!-- All -->
             <group>
                 <dependency id="Realm" version="3.2.0" />
+                <dependency id="CacheHandlerPlugin" version="$version$" />
             </group>
         </dependencies>
         
     </metadata>
 
     <files>
-        <file src="..\CacheHandlerPlugin.Realm\bin\Release\netstandard2.0\CacheHandlerPlugin.Realm.*" target="netstandard2.0"  />
+        <file src="..\CacheHandlerPlugin.Realm\bin\Release\CacheHandlerPlugin.Realm.*" target="lib\netstandard2.0"  />
     </files>
 </package>

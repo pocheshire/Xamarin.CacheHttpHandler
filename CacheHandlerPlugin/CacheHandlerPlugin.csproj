@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project
+    Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>CacheHandlerPlugin</PackageId>
@@ -14,21 +15,35 @@
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/pocheshire/Xamarin.CacheHttpHandler</PackageProjectUrl>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <OutputPath>bin\Debug</OutputPath>
+    <PropertyGroup
+        Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <OutputPath>bin\Release</OutputPath>
+    <PropertyGroup
+        Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <Platform
+            Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="Models\" />
-        <Folder Include="Services\" />
-        <Folder Include="Services\ApiCache\" />
-        <Folder Include="Exceptions\" />
-        <Folder Include="Services\Connectivity\" />
-        <Folder Include="Services\CacheSettings\" />
+        <Folder
+            Include="Models\" />
+        <Folder
+            Include="Services\" />
+        <Folder
+            Include="Services\ApiCache\" />
+        <Folder
+            Include="Exceptions\" />
+        <Folder
+            Include="Services\Connectivity\" />
+        <Folder
+            Include="Services\CacheSettings\" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+        <PackageReference
+            Include="NuGet.Build.Packaging"
+            Version="0.2.0" />
     </ItemGroup>
 </Project>

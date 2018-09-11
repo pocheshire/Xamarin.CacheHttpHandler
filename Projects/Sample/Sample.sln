@@ -1,0 +1,42 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.NetApp", "Sample.Console\Sample.NetApp.csproj", "{391A420F-0136-47E2-8F7A-A186E48BF890}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CacheHandlerPlugin", "CacheHandlerPlugin", "{DE7960A1-CC87-4575-9ABC-A8FBAB3CA4C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin", "..\..\CacheHandlerPlugin\CacheHandlerPlugin.csproj", "{A479B891-E8F0-44A1-830D-3BF7C690170C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Connectivity", "..\..\CacheHandlerPlugin.Connectivity\CacheHandlerPlugin.Connectivity.csproj", "{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.Realm", "..\..\CacheHandlerPlugin.Realm\CacheHandlerPlugin.Realm.csproj", "{0F51495C-70AD-4570-A629-5A5E058F8394}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{391A420F-0136-47E2-8F7A-A186E48BF890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391A420F-0136-47E2-8F7A-A186E48BF890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391A420F-0136-47E2-8F7A-A186E48BF890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391A420F-0136-47E2-8F7A-A186E48BF890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A479B891-E8F0-44A1-830D-3BF7C690170C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A479B891-E8F0-44A1-830D-3BF7C690170C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A479B891-E8F0-44A1-830D-3BF7C690170C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A479B891-E8F0-44A1-830D-3BF7C690170C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F51495C-70AD-4570-A629-5A5E058F8394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F51495C-70AD-4570-A629-5A5E058F8394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F51495C-70AD-4570-A629-5A5E058F8394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F51495C-70AD-4570-A629-5A5E058F8394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A479B891-E8F0-44A1-830D-3BF7C690170C} = {DE7960A1-CC87-4575-9ABC-A8FBAB3CA4C1}
+		{64F2AAA5-360F-4DB7-A7B8-2F961D427EAC} = {DE7960A1-CC87-4575-9ABC-A8FBAB3CA4C1}
+		{0F51495C-70AD-4570-A629-5A5E058F8394} = {DE7960A1-CC87-4575-9ABC-A8FBAB3CA4C1}
+	EndGlobalSection
+EndGlobal

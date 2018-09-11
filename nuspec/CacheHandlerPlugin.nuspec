@@ -20,6 +20,6 @@
     </metadata>
 
     <files>
-        <file src="..\CacheHandlerPlugin\bin\Release\netstandard2.0\CacheHandlerPlugin.*" target="netstandard2.0"  />
+        <file src="..\CacheHandlerPlugin\bin\Release\CacheHandlerPlugin.*" target="lib\netstandard2.0"  />
     </files>
 </package>

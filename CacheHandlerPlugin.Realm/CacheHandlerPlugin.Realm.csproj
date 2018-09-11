@@ -14,15 +14,12 @@
         <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
         <PackageProjectUrl>https://github.com/pocheshire/Xamarin.CacheHttpHandler</PackageProjectUrl>
     </PropertyGroup>
-    <PropertyGroup
-        Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <OutputPath>bin\$(Configuration)\</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
-    <PropertyGroup
-        Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <Platform
-            Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <OutputPath>bin\$(Configuration)\</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
@@ -37,5 +34,8 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Realm" Version="3.2.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="*Undefined*Tools\RealmWeaver.Fody.dll" />
     </ItemGroup>
 </Project>

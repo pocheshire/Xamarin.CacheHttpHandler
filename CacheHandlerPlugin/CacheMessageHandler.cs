@@ -55,11 +55,44 @@ namespace CacheHandlerPlugin
                 }
             }
             else
-            {
-                response = await _httpMessageInvoker.SendAsync(request, cancellationToken);
+            {                
+                response = await SendDefaultRequest(request, cancellationToken);
             }
 
             return response;
+        }
+
+        private async Task<HttpResponseMessage> SendDefaultRequest(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var responseMessage = new HttpResponseMessage();
+
+            Exception exception = null;
+
+            var canDoRequest = await ConnectivityService.CanDoRequest(request);
+            if (canDoRequest)
+            {
+                try
+                {
+                    responseMessage = await _httpMessageInvoker.SendAsync(request, cancellationToken);
+                }
+                catch (Exception ex)
+                {
+                    responseMessage.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                    exception = ex;
+                }
+            }
+            else
+            {
+                responseMessage.StatusCode = System.Net.HttpStatusCode.BadGateway;
+                exception = new ConnectivityException(request);
+            }
+
+            if (!responseMessage.IsSuccessStatusCode && exception != null)
+            {
+                throw exception;
+            }
+            
+            return responseMessage;
         }
 
         private async Task<HttpResponseMessage> SendRequestOrGetFromCache(HttpRequestMessage request, int expireInSeconds, IApiCacheService cacheService, CancellationToken cancellationToken)

@@ -9,6 +9,8 @@ namespace CacheHandlerPlugin.UnitTest.Mocks
     {
         private string _json = string.Empty;
 
+        public bool IsBadRequest { get; set; }
+
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(_json))
@@ -16,7 +18,9 @@ namespace CacheHandlerPlugin.UnitTest.Mocks
                 //TODO: load from content.json
             }
 
-            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
+            return IsBadRequest 
+            ? throw new HttpRequestException("Some reason of bad request")
+            : Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
             {
                 Content = new StringContent(_json)
             });

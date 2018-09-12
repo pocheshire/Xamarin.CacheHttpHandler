@@ -22,11 +22,13 @@ namespace CacheHandlerPlugin.UnitTest
 
         public CacheMessageHandler MessageHandler { get; private set; }
 
-        public ICacheSettingsContainer CacheSettingsContainer { get; private set; }
+        public ICacheSettingsContainer CacheSettingsContainer => MessageHandler?.CacheSettingsContainer;
 
         public IApiCacheService ApiCacheService { get; private set; }
 
         public IConnectivityService ConnectivityService { get; private set; }
+        
+        public HttpMessageHandlerMock MockHttpMessageHandler { get; private set; }
 
         public UnitTestFixture()
         {
@@ -51,35 +53,27 @@ namespace CacheHandlerPlugin.UnitTest
             }
         }
 
-        public void Reset()
+        public void Reset(ICacheSettingsContainer container = null)
         {
-            var repository = new RealmRepository(null);
+            var repository = new RepositoryMock();
             repository.RemoveAll();
 
             ApiCacheService = new RealmApiCacheService(repository);
 
             ConnectivityService = new ConnectivityMock();
 
-            var mockHttpMessageHandler = new HttpMessageHandlerMock();
+            MockHttpMessageHandler = new HttpMessageHandlerMock();
 
-            MessageHandler = new CacheMessageHandler(mockHttpMessageHandler, ApiCacheService, ConnectivityService)
+            MessageHandler = new CacheMessageHandler(MockHttpMessageHandler, ApiCacheService, ConnectivityService)
             {
-                CacheSettingsContainer = CacheSettingsContainer
+                CacheSettingsContainer = container
             };
 
             HttpClient = new HttpClient(MessageHandler);
         }
 
-        public void Setup()
-        {
-            Reset();
-        }
+        public void Setup() => Reset();
 
-        public void SetCacheSettingsContainer(ICacheSettingsContainer container)
-        {
-            CacheSettingsContainer = container;
-
-            Reset();
-        }
+        public void SetCacheSettingsContainer(ICacheSettingsContainer container) => Reset(container);
     }
 }

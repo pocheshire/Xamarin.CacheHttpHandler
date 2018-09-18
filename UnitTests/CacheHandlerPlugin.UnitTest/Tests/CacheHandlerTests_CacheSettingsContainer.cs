@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 using CacheHandlerPlugin.Models;
-using CacheHandlerPlugin.UnitTest.Mocks;
+using CacheHandlerPlugin.Services.CacheSettings;
 using Xunit;
 
 namespace CacheHandlerPlugin.UnitTest.Tests
@@ -15,7 +15,7 @@ namespace CacheHandlerPlugin.UnitTest.Tests
         [Fact]
         public async Task CheckDataSavedInCache_CSC()
         {
-            var container = new CacheSettingsContainerMock();
+            var container = new SimpleCacheSettingsContainer();
 
             Fixture.SetCacheSettingsContainer(container);
 

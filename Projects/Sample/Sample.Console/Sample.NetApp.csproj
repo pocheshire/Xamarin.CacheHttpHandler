@@ -10,11 +10,11 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cache\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\CacheHandlerPlugin\CacheHandlerPlugin.csproj" />
     <ProjectReference Include="..\..\..\CacheHandlerPlugin.Connectivity\CacheHandlerPlugin.Connectivity.csproj" />
     <ProjectReference Include="..\..\..\CacheHandlerPlugin.Realm\CacheHandlerPlugin.Realm.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Cache\NetAppCSC.cs" />
   </ItemGroup>
 </Project>

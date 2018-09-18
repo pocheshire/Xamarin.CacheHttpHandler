@@ -1,12 +1,11 @@
-﻿using System;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using CacheHandlerPlugin;
-using System.Net.Http;
-using CacheHandlerPlugin.Realm;
 using CacheHandlerPlugin.Connectivity;
-using CacheHandlerPlugin.Realm.Services.Repository;
 using CacheHandlerPlugin.Models;
-using Sample.NetApp.Cache;
+using CacheHandlerPlugin.Realm;
+using CacheHandlerPlugin.Realm.Services.Repository;
+using CacheHandlerPlugin.Services.CacheSettings;
 
 namespace Sample.NetApp
 {
@@ -63,14 +62,14 @@ namespace Sample.NetApp
 
             var apiCacheService = new RealmApiCacheService(new RealmRepository(null));
 
-            var netAppCSC = new NetAppCSC();
+            var csc = new SimpleCacheSettingsContainer();
 
             var handler = new CacheMessageHandler(
                 new HttpClientHandler(),
                 apiCacheService,
                 new ConnectivityService())
             {
-                CacheSettingsContainer = netAppCSC
+                CacheSettingsContainer = csc
             };
 
             var httpClient = new HttpClient(handler);
@@ -79,7 +78,7 @@ namespace Sample.NetApp
             {
                 System.Console.WriteLine("Register cache policy...");
 
-                netAppCSC.Register(requestMessage, new RequestCacheSettings(600));
+                csc.Register(requestMessage, new RequestCacheSettings(600));
 
                 System.Console.WriteLine("Request sending...");
 

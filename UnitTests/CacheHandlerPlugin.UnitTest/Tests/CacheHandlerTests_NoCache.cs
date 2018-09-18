@@ -42,10 +42,27 @@ namespace CacheHandlerPlugin.UnitTest.Tests
         public async Task CheckDataLoadedWithException()
         {
             Fixture.MockHttpMessageHandler.IsBadRequest = true;
+            Fixture.MockHttpMessageHandler.IsBadRequestWithException = true;
 
             using (var requestMessage = new HttpRequestMessage(HttpMethod.Get, RequestUri))
             {
                 await Assert.ThrowsAnyAsync<Exception>(async () => await Fixture.HttpClient.SendAsync(requestMessage));
+            }
+
+            Fixture.MockHttpMessageHandler.IsBadRequest = false;
+            Fixture.MockHttpMessageHandler.IsBadRequestWithException = false;
+        }
+
+        [Fact]
+        public async Task CheckDataLoadedWithServerUnavailable()
+        {
+            Fixture.MockHttpMessageHandler.IsBadRequest = true;
+
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Get, RequestUri))
+            {
+                var responseMessage = await Fixture.HttpClient.SendAsync(requestMessage);
+
+                Assert.True(responseMessage.StatusCode == Fixture.MockHttpMessageHandler.BadRequestCode);
             }
 
             Fixture.MockHttpMessageHandler.IsBadRequest = false;

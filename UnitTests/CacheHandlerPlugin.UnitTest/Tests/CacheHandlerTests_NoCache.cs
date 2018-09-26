@@ -54,7 +54,7 @@ namespace CacheHandlerPlugin.UnitTest.Tests
         }
 
         [Fact]
-        public async Task CheckDataLoadedWithServerUnavailable()
+        public async Task CheckDataLoadedWithBadRequest()
         {
             Fixture.MockHttpMessageHandler.IsBadRequest = true;
 

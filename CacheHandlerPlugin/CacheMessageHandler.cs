@@ -56,10 +56,43 @@ namespace CacheHandlerPlugin
             }
             else
             {
-                response = await _httpMessageInvoker.SendAsync(request, cancellationToken);
+                response = await SendDefaultRequest(request, cancellationToken);
             }
 
             return response;
+        }
+
+        private async Task<HttpResponseMessage> SendDefaultRequest(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var responseMessage = new HttpResponseMessage();
+
+            Exception exception = null;
+
+            var canDoRequest = await ConnectivityService.CanDoRequest(request);
+            if (canDoRequest)
+            {
+                try
+                {
+                    responseMessage = await _httpMessageInvoker.SendAsync(request, cancellationToken);
+                }
+                catch (Exception ex)
+                {
+                    responseMessage.StatusCode = System.Net.HttpStatusCode.BadRequest;
+                    exception = ex;
+                }
+            }
+            else
+            {
+                responseMessage.StatusCode = System.Net.HttpStatusCode.BadGateway;
+                exception = new ConnectivityException(request);
+            }
+
+            if (!responseMessage.IsSuccessStatusCode && exception != null)
+            {
+                throw exception;
+            }
+
+            return responseMessage;
         }
 
         private async Task<HttpResponseMessage> SendRequestOrGetFromCache(HttpRequestMessage request, int expireInSeconds, IApiCacheService cacheService, CancellationToken cancellationToken)
@@ -91,19 +124,26 @@ namespace CacheHandlerPlugin
             {
                 await cacheService.Add(request, responseMessage, TimeSpan.FromSeconds(expireInSeconds));
             }
-            else if (!cacheService.TryGet(request, out responseMessage) && exception != null)
+            else
             {
-                throw exception;
+                if (cacheService.TryGet(request, out var existResponseMessage))
+                {
+                    responseMessage = existResponseMessage; 
+                }
+                else if (exception != null)
+                {
+                    throw exception;
+                }
             }
 
             return responseMessage;
         }
 
-		private async Task<HttpResponseMessage> GetFromCacheOrSendRequest(HttpRequestMessage request, int expireInSeconds, IApiCacheService cacheService, CancellationToken cancellationToken)
+        private async Task<HttpResponseMessage> GetFromCacheOrSendRequest(HttpRequestMessage request, int expireInSeconds, IApiCacheService cacheService, CancellationToken cancellationToken)
         {
-            if (cacheService.TryGet(request, out var responseMessage)) 
+            if (cacheService.TryGet(request, out var responseMessage))
                 return responseMessage;
-            
+
             Exception exception = null;
 
             var canDoRequest = await ConnectivityService.CanDoRequest(request);

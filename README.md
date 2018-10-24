@@ -19,7 +19,7 @@
     var apiCacheService = new RealmApiCacheService(new RealmRepository(null));
     ```
 
-    or your own `IApiCacheService` implementation
+    or your own `IApiCacheService` implementation (and you don't need [CacheHandlerPlugin.Realm](https://www.nuget.org/packages/CacheHandlerPlugin.Realm/) package)
 
     and
     
@@ -27,7 +27,7 @@
     var connectionService = new ConnectivityService();
     ```
 
-    or your own `IConnectivityService` implementation
+    or your own `IConnectivityService` implementation (and you don't need [CacheHandlerPlugin.Connectivity](https://www.nuget.org/packages/CacheHandlerPlugin.Connectivity/) package)
 
 2. Create HttpClient instance
 
@@ -35,14 +35,14 @@
     var httpClient = new HttpClient(handler);
     ```
 
-3. Register `RequestCacheSettings` in your own `ICacheSettingsContainer` implementation or add cache settings in request message properties
+3. Register `RequestCacheSettings` in your own or default `ICacheSettingsContainer` implementation or add cache settings in request message properties
 
     ```csharp
-    var cacheSettingsContainer = new NetAppCSC();
+    var cacheSettingsContainer = new SimpleCacheSettingsContainer();
     
     var requestMessage = new HttpRequestMessage(HttpMethod.Get, %url%);
 
-    netAppCSC.Register(requestMessage, new RequestCacheSettings(600));
+    cacheSettingsContainer.Register(requestMessage, new RequestCacheSettings(600));
     ```
 
     or

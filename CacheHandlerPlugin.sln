@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_nuspec", "_nuspec", "{744C
 		nuspec\CacheHandlerPlugin.Realm.nuspec = nuspec\CacheHandlerPlugin.Realm.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{480C74CD-1F33-4894-88B3-68F3453C551C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheHandlerPlugin.UnitTest", "UnitTests\CacheHandlerPlugin.UnitTest\CacheHandlerPlugin.UnitTest.csproj", "{8425E7A8-9AAB-491B-A211-65C4911D2FDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +36,12 @@ Global
 		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD8BDC3-1483-408A-B26F-270296E520FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8425E7A8-9AAB-491B-A211-65C4911D2FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8425E7A8-9AAB-491B-A211-65C4911D2FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8425E7A8-9AAB-491B-A211-65C4911D2FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8425E7A8-9AAB-491B-A211-65C4911D2FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8425E7A8-9AAB-491B-A211-65C4911D2FDC} = {480C74CD-1F33-4894-88B3-68F3453C551C}
 	EndGlobalSection
 EndGlobal
